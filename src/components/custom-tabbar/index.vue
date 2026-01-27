@@ -6,7 +6,7 @@
       :icon="item.icon"
       :selected-icon="item.selectedIcon"
       :text="item.text"
-      :active="currentPath === item.pagePath"
+      :active="currentPage === item.pagePath"
       @click="handleTabClick(item.pagePath)"
     />
   </view>
@@ -15,7 +15,6 @@
 <script setup lang="ts">
 import { ref, onShow } from 'vue';
 import tabbarItem from './tabbar-item.vue';
-import { useRoute } from 'vue-router';
 
 // Tabbar 配置（通用模板，使用者可替换图标/路径）
 const tabList = ref([
@@ -45,19 +44,32 @@ const tabList = ref([
   },
 ]);
 
-// 当前页面路径（匹配 Tabbar 激活态）
-const route = useRoute();
-const currentPath = ref(route.path);
+// 当前页面路径（UniApp 原生方式获取，替代 vue-router）
+const currentPage = ref('');
 
-// 监听页面显示，更新激活态（解决 Tabbar 切换后状态不一致）
+// 监听页面显示，更新 Tabbar 激活态（UniApp 原生 API）
 onShow(() => {
-  currentPath.value = route.path;
+  // 获取当前页面栈，拿到当前页面路径
+  const pages = getCurrentPages();
+  if (pages.length > 0) {
+    // 拼接完整路径（和 tabList 中的 pagePath 匹配）
+    const currentPageRoute = pages[pages.length - 1].route;
+    currentPage.value = `/pages/${currentPageRoute}`;
+  }
 });
 
-// Tabbar 点击跳转
+// Tabbar 点击跳转（纯 UniApp 原生 API）
 const handleTabClick = (pagePath: string) => {
+  // 避免重复点击当前页面触发报错
+  if (currentPage.value === pagePath) return;
+
+  // UniApp 原生切换 Tabbar 页面（必须配合 pages.json 配置 tabBar）
   uni.switchTab({
     url: pagePath,
+    // 容错：跳转失败时用 redirectTo 兜底（兼容 H5 端）
+    fail: () => {
+      uni.redirectTo({ url: pagePath });
+    }
   });
 };
 </script>
