@@ -1,0 +1,15 @@
+// 主题样式变量（覆盖 uni.scss 中的默认值）
+$theme-color: $color-primary;
+
+// 自定义主题样式
+.theme-primary {
+  color: $color-primary;
+}
+
+.bg-primary {
+  background-color: $color-primary;
+}
+
+.border-primary {
+  border-color: $color-primary;
+}

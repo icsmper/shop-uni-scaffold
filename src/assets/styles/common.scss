@@ -1,0 +1,57 @@
+// 样式重置
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// 通用工具类
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-ellipsis-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// 通用间距
+.mt-10 {
+  margin-top: 10rpx;
+}
+
+.mb-10 {
+  margin-bottom: 10rpx;
+}
+
+.p-10 {
+  padding: 10rpx;
+}
+
+// 页面容器
+.page-container {
+  min-height: 100vh;
+  background-color: $color-gray;
+}

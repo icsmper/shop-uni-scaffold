@@ -1,0 +1,32 @@
+{
+  "name": "shop-uni-scaffold",
+  "version": "1.0.0",
+  "description": "UniApp商城项目脚手架（Vue3+TS+Pinia）",
+  "scripts": {
+    "dev:h5": "uni dev -p h5",
+    "dev:mp-weixin": "uni dev -p mp-weixin",
+    "dev:app": "uni dev -p app",
+    "build:h5": "uni build -p h5",
+    "build:mp-weixin": "uni build -p mp-weixin",
+    "build:app": "uni build -p app",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx",
+    "lint:fix": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "vue": "^3.4.0",
+    "pinia": "^2.1.7",
+    "axios": "^1.6.8",
+    "dayjs": "^1.11.10"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "vite": "^5.0.0",
+    "@dcloudio/vite-plugin-uni": "3.0.0-4070620250821001",
+    "eslint": "^8.56.0",
+    "eslint-plugin-vue": "^9.19.2",
+    "@vue/eslint-config-typescript": "^12.0.0",
+    "prettier": "^3.2.5",
+    "sass": "^1.69.5"
+  }
+}
