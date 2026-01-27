@@ -12,7 +12,4 @@ onLaunch(() => {
 </script>
 
 <style lang="scss">
-@import '@/assets/styles/common.scss';
-@import '@/assets/styles/theme.scss';
-@import '@/uni.scss';
 </style>
