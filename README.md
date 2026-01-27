@@ -1,4 +1,5 @@
 # shop-uni-scaffold
+<<<<<<< HEAD
 UniApp 商城项目脚手架（Vue3+TS+Pinia）
 
 ## 特性
@@ -12,3 +13,6 @@ UniApp 商城项目脚手架（Vue3+TS+Pinia）
 ```bash
 git clone https://github.com/你的用户名/shop-uni-scaffold.git
 cd shop-uni-scaffold
+=======
+shop-uni-scaffold
+>>>>>>> 26f60194c4d9c8091ad4b64a9c0238d4f91b322a
