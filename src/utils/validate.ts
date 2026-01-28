@@ -37,7 +37,6 @@ export const validateEmpty = (value: any): boolean => {
 export const validateUrl = (url: string): boolean => {
   if (!url) return false;
   try {
-    // 使用 URL 构造器做基本校验（注：相对路径会被视为无效）
     // @ts-ignore
     new URL(url);
     return true;

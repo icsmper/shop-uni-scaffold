@@ -17,7 +17,6 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        // 🔥 调整顺序：先注入变量文件，再注入 theme.scss
         additionalData: `
           @use '@@/assets/styles/common.scss as *';
           @use '@/uni.scss' as *;
