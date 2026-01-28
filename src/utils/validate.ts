@@ -1,35 +1,55 @@
 /**
- * 校验工具
+ * 校验工具函数集
+ * - validatePhone: 校验中国大陆手机号
+ * - validateEmail: 校验邮箱
+ * - validateIdCard: 简单校验身份证号（18位或17位+校验位）
+ * - validateEmpty: 校验空值（字符串、数组、对象、null/undefined）
+ * - validateUrl: 简单校验 URL
  */
 
-// 校验手机号
 export const validatePhone = (phone: string): boolean => {
   const reg = /^1[3-9]\d{9}$/;
-  return reg.test(phone);
+  return reg.test(String(phone));
 };
 
-// 校验邮箱
 export const validateEmail = (email: string): boolean => {
-  const reg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
-  return reg.test(email);
+  const reg = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+  return reg.test(String(email));
 };
 
-// 校验身份证号（简单校验）
 export const validateIdCard = (idCard: string): boolean => {
-  const reg = /(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
-  return reg.test(idCard);
+  const reg = /( ^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+  return reg.test(String(idCard));
 };
 
-// 校验是否为空
+/**
+ * 判断是否为空
+ * 返回 true 表示为空（undefined、null、空字符串、只包含空白字符串、空数组、空对象）
+ */
 export const validateEmpty = (value: any): boolean => {
-  if (value === undefined || value === null || value === '') return true;
+  if (value === undefined || value === null) return true;
+  if (typeof value === 'string' && value.trim() === '') return true;
   if (Array.isArray(value) && value.length === 0) return true;
-  if (typeof value === 'object' && Object.keys(value).length === 0) return true;
+  if (typeof value === 'object' && !Array.isArray(value)) return Object.keys(value).length === 0;
   return false;
 };
 
-// 校验密码强度（至少8位，包含字母和数字）
-export const validatePassword = (password: string): boolean => {
-  const reg = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
-  return reg.test(password);
+export const validateUrl = (url: string): boolean => {
+  if (!url) return false;
+  try {
+    // 使用 URL 构造器做基本校验（注：相对路径会被视为无效）
+    // @ts-ignore
+    new URL(url);
+    return true;
+  } catch (err) {
+    return false;
+  }
+};
+
+export default {
+  validatePhone,
+  validateEmail,
+  validateIdCard,
+  validateEmpty,
+  validateUrl,
 };

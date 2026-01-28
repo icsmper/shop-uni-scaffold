@@ -1,5 +1,5 @@
 <template>
-  <BasicLayout navTitle="我的" showBack="false">
+  <BasicLayout :navTitle="'我的'" :showBack="false">
     <view class="mine-content flex flex-col flex-center">
       <view class="user-info" v-if="userInfo">
         <image class="avatar" :src="userInfo.avatar || '/static/images/avatar.png'" mode="aspectFill"></image>

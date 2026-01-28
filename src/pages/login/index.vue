@@ -1,5 +1,5 @@
 <template>
-  <PageLayout navTitle="登录" showBack="true">
+  <PageLayout :navTitle="'登录'" :showBack="true">
     <view class="login-container flex flex-col flex-center">
       <Input
         label="用户名"

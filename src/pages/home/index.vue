@@ -1,5 +1,5 @@
 <template>
-  <BasicLayout navTitle="首页" showBack="false">
+  <BasicLayout :navTitle="'首页'" :showBack="false">
     <!-- 页面业务内容 -->
     <view class="home-content flex flex-center">
       <text>首页内容区域（可替换为业务代码）</text>

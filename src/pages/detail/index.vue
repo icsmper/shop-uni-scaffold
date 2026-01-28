@@ -1,5 +1,5 @@
 <template>
-  <PageLayout navTitle="商品详情">
+  <PageLayout :navTitle="'商品详情'">
     <view class="detail-content flex flex-col gap-20">
       <!-- 商品图片 -->
       <image class="goods-img" src="/static/images/goods-demo.png" mode="widthFix"></image>

@@ -1,5 +1,5 @@
 <template>
-  <BasicLayout navTitle="分类" showBack="false">
+  <BasicLayout :navTitle="'分类'" :showBack="false">
     <view class="category-content flex flex-center">
       <text>分类页面内容</text>
     </view>
